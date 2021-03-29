@@ -27,6 +27,7 @@
 .. image:: https://i.loli.net/2021/03/29/98SdcteoMVXuk4m.png
     :width: 200
     :align: center
+    :alt: cluster network topo
     
 其中USTC-Network为校园网，路由器（三层设备）wan口接入校园网，具有校园网 IP。交换机（二层设备）接入路由器lan口，用于扩展路由器 lan 口接口。集群的各个主机连接到交换机接口，并从路由器自动获得 IP，从而将各个设备连接起来，使其处于同一个局域网（冲突域）中。至此的部署配置就完成了集群的网络连接过程，在后续接入设备时，请按照上面所描述的网络结构进行连接。
 
@@ -71,6 +72,7 @@ VPN搭建
 .. image:: https://i.loli.net/2021/03/29/rnJdglbsSU587IQ.png
     :align: center
     :width: 300
+    :alt: network topo
 
 如上图所示，router 中搭建 VPN 后，远端的客户端可通过 VPN 建立的隧道完成对集群节点的访问。
 具体搭建步骤如下（目前仅介绍 router 和 vpn 分离方式）：
@@ -90,6 +92,7 @@ VPN搭建
 
     .. image:: https://i.loli.net/2021/03/29/aVO6WCqvcsjRDL8.png
         :align: center
+        :alt: router firewall
         
     ``zones`` 开启，``wan->lan`` 设置为 *accept*，才能开启端口转发
 
@@ -97,6 +100,7 @@ VPN搭建
 
     .. image:: https://i.loli.net/2021/03/29/JZXCcqAbt2N3O79.png
         :align: center
+        :alt: port forward
 
     其中 ``L2TP``，``IPsec`` 和 ``IKE`` 是必须开的选项用于 VPN 的客户端连接，992，5555和1194为任选其一开发（或者全开都口）用于vpnserver的管理，下文会提到。
 
@@ -105,6 +109,7 @@ VPN搭建
 
     .. image:: https://i.loli.net/2021/03/29/CYVylO2UgNkHq7J.png
         :align: center
+        :alt: vpnserver manager login
 
     主机名为路由器ip地址（可以为局域网地址：192.168.2.1，也可以为域名：cddsclab.f3322.net 或 vpn.dscl.team,如果你是在局域网外可以使用域名)，端口选择上面开放的管理端口（本例为5555）
 
@@ -112,6 +117,7 @@ VPN搭建
 
     .. image:: https://i.loli.net/2021/03/29/HbIeY2ZJ4dh1Bfz.png
         :align: center
+        :alt: Control panel
 
     (5). 开始配置 vpnserver（首次配置，迁移配置参考步骤 :ref:`(6) <back_from_config>`）
 
@@ -119,16 +125,19 @@ VPN搭建
 
     .. image:: https://i.loli.net/2021/03/29/hXMvjHLUNwJOl5r.png
         :align: center
+        :alt: control panel
 
-    点击管理虚拟HUB可以新增用户等：这部分可以咨询
+    点击管理虚拟HUB可以新增用户等。
 
     .. image:: https://i.loli.net/2021/03/29/ErXuRw3BWJ147H2.png
         :align: center
+        :alt: virtual hub
 
     同时为了 vpn 能够顺利连接，并且客户端能够分配到路由器的 IP，还需要给虚拟HUB配置本地网桥，选择本地网桥设置：
 
     .. image:: https://i.loli.net/2021/03/29/iSRWOLF7NEGjtqD.png
         :align: center
+        :alt: local bridge
 
     虚拟 HUB 选择刚刚的 VPN，LAN 适配器选择当前 vpnserver 所在主机的物理网卡名称（此处为 enp2s0）
     至此，一个完整的VPN配置就完成了，用户可以按照 `如何连接VPN`_ 进行连接操作。
@@ -144,6 +153,7 @@ VPN搭建
 
         .. image:: https://i.loli.net/2021/03/29/wt5XTusrR1vmMUE.png
             :align: center
+            :alt: backup config
 
         点击保存到文件即可保存当前配置
 
@@ -158,6 +168,7 @@ VPN搭建
 .. _`Remote-Access-VPN-to-LAN`: https://www.softether.org/4-docs/2-howto/1.VPN_for_On-premise/2.Remote_Access_VPN_to_LAN
 .. _`vpnserver`: https://www.softether-download.com/cn.aspx?product=softether
 .. _`如何连接VPN`: https://docs.qq.com/doc/DTnhkdFVnTUpBTlFz
+
 
 动态DNS
 -----------
@@ -209,7 +220,7 @@ VPN搭建
         #  reboot the route at 4:30 am for every day
         30 4 * * * sleep 70 && touch /etc/banner && reboot
 
-``sleep 70`` 的作用防止重启的时间过快从而导致反复重启，所以需要先睡眠60秒以上。
+``sleep 70`` 的作用防止重启的时间过快从而导致反复重启，所以需要先睡眠 60 秒以上。
 
 具体编写格式参考 `openwrt_cron`_
 
