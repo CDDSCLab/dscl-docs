@@ -4,9 +4,8 @@
 集群部署
 ==========
 
-.. contents:: Table of Contents
+.. contents:: 目录
 
-.. section-numbering::
 
 撰写目的
 ===============

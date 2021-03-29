@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'DSCL实验室文档'
-copyright = '2021, ehds'
+copyright = '2021, DSCL'
 author = 'ehds'
 
 
