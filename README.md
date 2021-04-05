@@ -1,5 +1,7 @@
 DSCL实验室公开文档，方便追踪历史和查阅。
 
+[![Documentation Status](https://readthedocs.org/projects/dscl-docs/badge/?version=latest)](https://dscl-docs.readthedocs.io/en/latest/?badge=latest)
+
 ### 安装Sphinx
 ```
 pip install -U Sphinx
