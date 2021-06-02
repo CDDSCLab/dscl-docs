@@ -14,6 +14,13 @@
    cluster/deployment/deployment.rst
    cluster/deployment/question.rst
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Gitlab部署:
+   :numbered:
+   
+   gitlab/deployment.rst
+
 
 索引
 ==================
