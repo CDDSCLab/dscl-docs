@@ -34,15 +34,15 @@
 
 其中路由器选择小米路由器AC2100，并刷入 openwrt 系统，有关具体硬件和系统信息请参考 `mi_router_ac2100_wiki`_ 。
 
-.. _`mi_router_ac2100_wiki`: https://openwrt.org/toh/xiaomi/xiaomi_mi_router_ac2100
+.. _`mi_router_ac2100_wiki`: https://openwrt.org/toh/xiaomi/mi_router_ac2100
 
 .. image:: https://i.loli.net/2021/03/29/MfEOSmQToVlGnzg.png
     :align: center
     :alt: Mi Router AC2100
 
-交换机为TP-LINK TL-SF1016（百兆）系列交换机。
+交换机为 普联TL-SG1016DT（千兆）系列交换机。
 
-.. image:: https://i.loli.net/2021/03/29/1GUxkzBjEAvFp5I.png
+.. image:: https://i.loli.net/2021/06/01/iey1R6Fgfjvt9nJ.png
     :align: center
     :width: 400
     :alt: TL-SF1016 Switch
@@ -55,7 +55,7 @@
 -----------
 完成集群网络连接后，还需要进行校园网认证登陆(aaa.uestc.edu.cn)，有以下两种方法：
 
-1. 手动认证，打印机电脑是连接如集群网络，并具有显示设备，所以直接用其浏览器打开认证网址，填入账号域名，认证即可。
+1. 手动认证，可以通过连接在集群的打印机电脑进行手动认证，用浏览器打开认证网址，填入账号域名，认证即可。
 2. 自动化认证，校园网因为是动态分配 IP，所以 IP 会随时变化，为了使得这一过程自动化，编写了一个自动登陆程序 `uestc_network_manager`_ ，详细见        README。可部署在集群内的主机上，实现断网自动认证。
 
 .. _`uestc_network_manager`: https://github.com/ehds/uestc_network_manager
