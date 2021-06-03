@@ -19,7 +19,7 @@
    :caption: Gitlab部署:
    :numbered:
    
-   gitlab/deployment.rst
+   gitlab/deployment.md
 
 
 索引
