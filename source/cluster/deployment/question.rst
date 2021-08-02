@@ -120,10 +120,13 @@
     
     (1). 重新启动vpn服务： ``sudo vpnserver start``。
 
-    (2). 有两个硬盘分区的mount没有写入 ``/etc/fstab`` 文件，需要重新mount，mount前可以通过下列命令进行检查mount情况： ``df -h`` 查看已挂载设备, ``fdisk -l`` 查看所有设备, ``findmnt`` 根据设备查找mount点。
+    (2). 有两个硬盘分区的mount没有写入 ``/etc/fstab`` 文件，需要重新mount。
 
         * nvme拓展盘： ``mount sudo mount /dev/nvme0n1p3 /nvme-storage``
          
         * docker磁盘： ``mount /dev/sda1 /disk2`` 另外还有一个 ``/disk`` 文件夹应该是不使用的，可以在docker的配置文件 ``/etc/docker/daemon.json`` 中反推需要mount的文件夹在哪。
+    
+    .. note::
+        mount前可以通过下列命令进行检查mount情况： ``df -h`` 查看已挂载设备, ``fdisk -l`` 查看所有设备, ``findmnt`` 根据设备查找mount点。
          
     (3). master路由表需要重新配置才能在连接vpn的情况下直接ssh master，配置没有成功，后续再研究。
