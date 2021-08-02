@@ -1,3 +1,5 @@
 build/
 make.sh
 tags
+.vscode
+_build/
