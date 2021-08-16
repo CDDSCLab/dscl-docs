@@ -122,9 +122,9 @@
 
     (2). 有两个硬盘分区的mount没有写入 ``/etc/fstab`` 文件，需要重新mount。
 
-        * nvme拓展盘： ``mount sudo mount /dev/nvme0n1p3 /nvme-storage``
+        * nvme拓展盘： ``sudo mount /dev/nvme0n1p3 /nvme-storage``
          
-        * docker磁盘： ``mount /dev/sda1 /disk2`` 另外还有一个 ``/disk`` 文件夹应该是不使用的，可以在docker的配置文件 ``/etc/docker/daemon.json`` 中反推需要mount的文件夹在哪。
+        * docker磁盘： ``sudo mount /dev/sda1 /disk2`` 另外还有一个 ``/disk`` 文件夹应该是不使用的，可以在docker的配置文件 ``/etc/docker/daemon.json`` 中反推需要mount的文件夹在哪。
     
     .. note::
         mount前可以通过下列命令进行检查mount情况： ``df -h`` 查看已挂载设备, ``fdisk -l`` 查看所有设备, ``findmnt`` 根据设备查找mount点。
