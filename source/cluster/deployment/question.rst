@@ -124,7 +124,7 @@
 
         * nvme拓展盘： ``sudo mount /dev/nvme0n1p3 /nvme-storage``
          
-        * docker磁盘： ``sudo mount /dev/sda1 /disk2`` 另外还有一个 ``/disk`` 文件夹应该是不使用的，可以在docker的配置文件 ``/etc/docker/daemon.json`` 中反推需要mount的文件夹在哪。mount之后记得要重启docker服务 ``sudo systemctl start docker`` 。
+        * docker磁盘： ``sudo mount /dev/sda1 /disk2`` 另外还有一个 ``/disk`` 文件夹应该是不使用的，可以在docker的配置文件 ``/etc/docker/daemon.json`` 中反推需要mount的文件夹在哪。mount之后记得要重启docker服务 ``sudo systemctl restart docker`` 。
     
     .. note::
         mount前可以通过下列命令进行检查mount情况： ``df -h`` 查看已挂载设备, ``fdisk -l`` 查看所有设备, ``findmnt`` 根据设备查找mount点。
