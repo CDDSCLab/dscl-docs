@@ -130,4 +130,5 @@
         mount前可以通过下列命令进行检查mount情况： ``df -h`` 查看已挂载设备, ``fdisk -l`` 查看所有设备, ``findmnt`` 根据设备查找mount点。
          
     (3). master路由表需要重新配置才能在连接vpn的情况下直接ssh master 或 ssh master2.
+    
          * 删除绑定vpn的网口路由表： ``sudo route del -net 192.168.2.0 netmask 255.255.255.0 enp2s0``
