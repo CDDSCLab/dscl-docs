@@ -121,6 +121,7 @@
     (1). 重新启动vpn服务： ``sudo vpnserver start``。
 
     (2). 有两个硬盘分区的mount没有写入 ``/etc/fstab`` 文件，需要重新mount。
+        * 最新的配置中已经把挂载点写入到 ``/etc/fstab`` 文件中，不需要手动操作了，其步骤为 ``sudo blkid /dev/sda3`` ``UUID=7af536ea-446c-4f89-84b3-5573cfafdc42 /disk2 ext4 defaults`` 。
 
         * nvme拓展盘： ``sudo mount /dev/nvme0n1p3 /nvme-storage``
          
