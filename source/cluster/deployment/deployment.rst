@@ -101,7 +101,7 @@ VPN搭建
         :align: center
         :alt: port forward
 
-    其中 ``L2TP``，``IPsec`` 和 ``IKE`` 是必须开的选项用于 VPN 的客户端连接，992，5555和1194为任选其一开发（或者全开都口）用于vpnserver的管理，下文会提到。
+    其中 ``L2TP``，``IPsec`` 和 ``IKE`` 是必须开的选项用于 VPN 的客户端连接，992，5555和1194为任选其一开放（或者全都开放）用于vpnserver的管理，下文会提到。
 
     (3). 搭建完毕后，首次运行需要设置 vpnserver，需要下载辅助工具 vpnserver-manager，下载地址同上 vpnserver-manager，选择相应平台（以 windows 为例）
     安装后，配置连接:
