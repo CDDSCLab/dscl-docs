@@ -153,4 +153,4 @@
         补充进入 BIOS 的方法，先使用显示器连接服务器，开机后注意观察屏幕提示关注如何进入 BIOS，现在是设置成 ``Last State`` 是否需要设置成 ``Power On`` 需要进一步考虑。
         下面是已经探索过的路径：
         host3等: 按 ``del`` -> ``BIOS`` -> ``Advanced`` -> ``APM`` -> ``Restore AC Power Loss`` 设置为 ``Last State`` 或 ``Power On``。
-        host4,host5等: 按 ``F12`` -> ``BIOS`` -> ``Advanced`` -> ``Boot Feature`` -> ``Restore AC Power Loss`` 设置为 ``Last State`` 或 ``Power On``。
+        host4, host5等: 按 ``F12`` -> ``BIOS`` -> ``Advanced`` -> ``Boot Feature`` -> ``Restore AC Power Loss`` 设置为 ``Last State`` 或 ``Power On``。
