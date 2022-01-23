@@ -137,3 +137,20 @@
     (3). master路由表需要重新配置才能在连接vpn的情况下直接ssh master 或 ssh master2.
     
          * 删除绑定vpn的网口路由表： ``sudo route del -net 192.168.2.0 netmask 255.255.255.0 enp2s0``
+
+
+6. 时间：2022年1月22日
+
+    **故障描述**: 主楼**停电检修**前先把服务器关机，后导致服务器没有来电自启动，导致 host3, host4, host5, host6不能访问。（P3故障）
+
+    **排查**：进入 BIOS 相关设置发现，上述机器设置的是 last state, 断电前的状态是 power off， 通电后仍然保持 power off，手动开机即可。
+
+    **解决方法**：
+    
+    手动开机。
+
+    .. note:: 
+        补充进入 BIOS 的方法，先使用显示器连接服务器，开机后注意观察屏幕提示关注如何进入 BIOS，现在是设置成 ``Last State`` 是否需要设置成 ``Power On`` 需要进一步考虑。
+        下面是已经探索过的路径：
+        host3等: 按 ``del`` -> ``BIOS`` -> ``Advanced`` -> ``APM`` -> ``Restore AC Power Loss`` 设置为 ``Last State`` 或 ``Power On``。
+        host4,host5等: 按 ``F12`` -> ``BIOS`` -> ``Advanced`` -> ``Boot Feature`` -> ``Restore AC Power Loss`` 设置为 ``Last State`` 或 ``Power On``。
