@@ -123,7 +123,7 @@
     .. note:: 
         2022-01-23补充：已经将上述命令写入了 ``/usr/local/lib/systemd/system/vpn-302.service`` service 中自启动。
 
-    (2). 有两个硬盘分区的mount没有写入 ``/etc/fstab`` 文件，需要重新mount。
+    (2). 有两个硬盘分区的mount没有写入 ``/etc/fstab`` 文件，需要重新mount，mount 时注意用 id 而不是 ``/dev..`` 后者会随着磁盘插入位置的不同而不同。
         * 最新的配置中已经把挂载点写入到 ``/etc/fstab`` 文件中，不需要手动操作了，其步骤为 ``sudo blkid /dev/sda3`` ``UUID=7af536ea-446c-4f89-84b3-5573cfafdc42 /disk2 ext4 defaults`` 。
 
         * nvme拓展盘： ``sudo mount /dev/nvme0n1p3 /nvme-storage``
