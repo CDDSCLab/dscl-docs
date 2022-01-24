@@ -121,17 +121,23 @@
     (1). 重新启动vpn服务： ``sudo vpnserver start``。
 
     .. note:: 
-        2022-01-23补充：已经将上述命令写入了 ``/usr/local/lib/systemd/system/vpn-302.service`` service 中自启动。
+        2022-01-23补充：已经将上述命令写入 ``/usr/local/lib/systemd/system/vpn-302.service`` service 中并 ``systemctl enable`` 了。
 
-    (2). 有两个硬盘分区的mount没有写入 ``/etc/fstab`` 文件，需要重新mount，mount 时注意用 id 而不是 ``/dev..`` 后者会随着磁盘插入位置的不同而不同。
-        * 最新的配置中已经把挂载点写入到 ``/etc/fstab`` 文件中，不需要手动操作了，其步骤为 ``sudo blkid /dev/sda3`` ``UUID=7af536ea-446c-4f89-84b3-5573cfafdc42 /disk2 ext4 defaults`` 。
+    (2). 有两个硬盘分区的mount没有写入 ``/etc/fstab`` 文件，需要重新mount。
+
+        * 最新的配置中已经把挂载点写入到 ``/etc/fstab`` 文件中，不需要手动操作了，
 
         * nvme拓展盘： ``sudo mount /dev/nvme0n1p3 /nvme-storage``
          
         * docker磁盘： ``sudo mount /dev/sda1 /disk2`` 另外还有一个 ``/disk`` 文件夹应该是不使用的，可以在docker的配置文件 ``/etc/docker/daemon.json`` 中反推需要mount的文件夹在哪。mount之后记得要重启docker服务 ``sudo systemctl restart docker`` 。
     
     .. note::
-        2022-01-23补充：已经将 mount 持久化到了 ``/etc/fstab`` 文件中。
+        2022-01-23补充：已经将 mount 持久化到了 ``/etc/fstab`` 文件中，mount 时注意用 UUID 而不是 ``/dev/sda1`` 后者会随着磁盘插入位置的不同而变化,其步骤为:
+        
+        获取 UUID：``sudo blkid /dev/sda3`` 。
+
+        写入 ``etc/fstab`` 文件 ``UUID=7af536ea-446c-4f89-84b3-5573cfafdc42 /disk2 ext4 defaults`` 。
+
         mount前可以通过下列命令进行检查mount情况： ``df -h`` 查看已挂载设备, ``fdisk -l`` 查看所有设备, ``findmnt`` 根据设备查找mount点。
          
     (3). master路由表需要重新配置才能在连接vpn的情况下直接ssh master 或 ssh master2.
@@ -152,5 +158,7 @@
     .. note:: 
         补充进入 BIOS 的方法，先使用显示器连接服务器，开机后注意观察屏幕提示关注如何进入 BIOS，现在是设置成 ``Last State`` 是否需要设置成 ``Power On`` 需要进一步考虑。
         下面是已经探索过的路径：
+
         host3等: 按 ``del`` -> ``BIOS`` -> ``Advanced`` -> ``APM`` -> ``Restore AC Power Loss`` 设置为 ``Last State`` 或 ``Power On``。
-        host4, host5等: 按 ``F12`` -> ``BIOS`` -> ``Advanced`` -> ``Boot Feature`` -> ``Restore AC Power Loss`` 设置为 ``Last State`` 或 ``Power On``。
+
+        host4， host5等: 按 ``F12`` -> ``BIOS`` -> ``Advanced`` -> ``Boot Feature`` -> ``Restore AC Power Loss`` 设置为 ``Last State`` 或 ``Power On``。
