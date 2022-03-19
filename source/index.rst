@@ -13,6 +13,7 @@
    
    cluster/deployment/deployment.rst
    cluster/deployment/question.rst
+   cluster/deployment/monitor.md
 
 .. toctree::
    :maxdepth: 2
