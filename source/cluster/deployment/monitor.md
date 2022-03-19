@@ -163,9 +163,7 @@ grafana效果图
        ```
 
    	6.  在 master 中实验室论坛静态页面上增加新增服务的跳转链接。
-
-       * 增加内服服务选项
-
+·		增加内服服务选项
          `/home/dscl/dscl-web/index.html` 里面的内部服务增加几个项目
 
 ### grafana配置
