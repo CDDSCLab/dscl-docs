@@ -59,7 +59,7 @@ grafana效果图
 
 4. 使用dscl.team路径访问
 
-   效果为 grafana.dscl.team -> cddsclab.f3322.net(路由器定时把最近ip通过DDNS告知f3322) -> nginx
+   效果为 grafana.dscl.team -> cddsclab.f3322.net(路由器定时把最近ip通过DDNS告知f3322) -> nginx。
    ![dns](images/dns.jpg)
 
  5. 在 master nginx 上面增加 prometheus, alermanager, grafana的转接。
@@ -152,8 +152,8 @@ grafana效果图
 ### grafana配置
 在进行完以上步骤后，需要对 grafana 进行配置，根据参考文件提示的步骤操作即可。
 目前使用的模板是([模板市场](https://grafana.com/grafana/dashboards/))：
-* 中文，方便查看多台设备，缺少温度，[8919](https://grafana.com/grafana/dashboards/8919) 
-* 英文，node exporter下载量最高，[1860](https://grafana.com/grafana/dashboards/1860)
+* 中文，方便查看多台设备，缺少温度，[8919](https://grafana.com/grafana/dashboards/8919)。
+* 英文，node exporter下载量最高，[1860](https://grafana.com/grafana/dashboards/1860)。
 
 ### 参考文献：
 * [运维监控系列（6）-Prometheus+Grafana监控多台Linux服务器](https://blog.csdn.net/qq_43437874/article/details/120355246)
