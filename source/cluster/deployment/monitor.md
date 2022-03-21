@@ -186,7 +186,7 @@ route:
 receivers:
 - name: 'email'
   email_configs:
-  - to: ['<admin1>@xxx.com', '<admin2>@xxx.com'] # 管理员邮箱
+  - to: '<admin1>@xxx.com, <admin2>@xxx.com' # 管理员邮箱
     send_resolved: true
 inhibit_rules:
   - source_match:
