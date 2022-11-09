@@ -162,3 +162,36 @@
         host3等: 按 ``del`` -> ``BIOS`` -> ``Advanced`` -> ``APM`` -> ``Restore AC Power Loss`` 设置为 ``Last State`` 或 ``Power On``。
 
         host4， host5等: 按 ``F12`` -> ``BIOS`` -> ``Advanced`` -> ``Boot Feature`` -> ``Restore AC Power Loss`` 设置为 ``Last State`` 或 ``Power On``。
+
+
+7. 时间：2022年1月22日
+
+    **故障描述**: 主楼 **无通知停电** 导致 host3 BIOS 重设，开机显示 **Invalid Partition Table**。（P3故障）
+
+    **排查**：想起来之前有同学处理过这个情况，应该是 BIOS 恢复默认设置后没法正确识别启动项。直接搜索这个报错发现了一个 `参考链接 <https://zhuanlan.zhihu.com/p/364016838> `_ 。
+
+    **解决方法**：
+
+    (1). 参照第六次故障注解部分进入 BIOS， 进入 ``Advanced`` -> ``CSM Configuration`` -> ``Boot option filter`` 设置为 ``UEFI only`` 。
+
+
+    (2). 进入 ``Boot`` -> ``Boot Option #1`` 设置为 ``Ubuntu``。
+
+    相关图片：
+
+    .. image:: https://s2.loli.net/2022/11/09/Aer7OhVMnSPdksH.jpg
+        :align: center
+        :alt: invalid partition table
+
+    .. image:: https://s2.loli.net/2022/11/09/ExPhcvFI21pBKwS.jpg
+        :align: center
+        :alt: advanced csm entry
+
+    .. image:: https://s2.loli.net/2022/11/09/pUqms8WFjftKRwA.jpg
+        :align: center
+        :alt: uefi only
+    
+    .. image:: https://s2.loli.net/2022/11/09/VZgPu7USRekxfJl.jpg
+        :align: center
+        :alt: boot proority
+
